@@ -1,8 +1,7 @@
-import React from 'react';
+import React , { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-
-const Header = (head) => {
+/*const Header = (head) => {
   return(
     <>
     <h1>{head.course}</h1>
@@ -11,7 +10,7 @@ const Header = (head) => {
 }
 
 //1.1 , 1.2
-/*const Part = (par) => {
+const Part = (par) => {
   return(
     <>
     <p>{par.name} {par.exercise}</p>
@@ -19,7 +18,7 @@ const Header = (head) => {
     //in content
     <Part part={prop.name} exercise={prop.exercises}/>
   )
-}*/
+}
 
 const Content = (prop) => {
   return(
@@ -41,7 +40,7 @@ const Total = (tot) => {
 }
 
 //1.1 , 1.2
-/*const App = () => {
+const App = () => {
   const course = 'Half Stack application development'
   const part1 = 'Fundamentals of React'
   const exercises1 = 10
@@ -57,7 +56,7 @@ const Total = (tot) => {
       <Total exercises1={exercises1} exercises2={exercises2} exercises3={exercises3}/>
     </div>
   )
-}*/
+}
 
 //1.3 and 1.4 and 1.5
 const App = () => {
@@ -86,7 +85,8 @@ const App = () => {
       <Total parts={course.parts} />
     </div>
   )
-}
+}*/
+
 
 ReactDOM.render(<App />, document.getElementById('root'))
 
