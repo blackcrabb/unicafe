@@ -158,11 +158,24 @@ ReactDOM.render(<App />, document.getElementById('root'))*/
 
 const App = (props) => {
   const [selected, setSelected] = useState(0)
+  var ary = new Uint8Array(6); 
+
+  const handleClick = () =>{
+    ary[selected] += 1;
+    console.log(ary[selected])
+    console.log(ary)
+  
+  }
+  
+ 
 
   return (
     <div>
       {props.anecdotes[selected]}
       <br/>
+      has  votes
+      <br/>
+      <button onClick={ handleClick}>vote</button>
       <button onClick={()=>{ setSelected(Math.floor((Math.random() * 5) ))}}>next anecdote</button>
     </div>
   )
