@@ -155,28 +155,42 @@ const App = () => {
 
 ReactDOM.render(<App />, document.getElementById('root'))*/
 
+const Most = (props) => {
+
+  let i = props.points.indexOf(Math.max(...props.points));
+  console.log(i)
+  return(
+    <>
+      {props.anec[i]}
+    </>
+  )
+}
 
 const App = (props) => {
   const [selected, setSelected] = useState(0)
-  var ary = new Uint8Array(6); 
+  const [ points,setPoints] = useState(Array.apply(null, new Array(6)).map(Number.prototype.valueOf,0))
 
   const handleClick = () =>{
-    ary[selected] += 1;
-    console.log(ary[selected])
-    console.log(ary)
-  
+  const copy = [...points]
+    copy[selected] += 1
+    setPoints(copy)
   }
+
   
- 
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
+      <br/>
       {props.anecdotes[selected]}
       <br/>
-      has  votes
+      has {points[selected]} votes
       <br/>
       <button onClick={ handleClick}>vote</button>
       <button onClick={()=>{ setSelected(Math.floor((Math.random() * 5) ))}}>next anecdote</button>
+      <br/>
+      <h1>Anecdote with most votes</h1>
+      <Most points={points} anec={props.anecdotes}/>
     </div>
   )
 }
